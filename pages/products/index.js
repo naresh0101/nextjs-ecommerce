@@ -20,7 +20,7 @@ const Blogs = () => {
           <div className="flex flex-wrap -m-4">
 
             {
-            products?.map((item, i) => {
+              products?.map((item, i) => {
                 return <ProductCard item={item} key={i} />
               })
             }

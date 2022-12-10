@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import ProductCard from "../components/productCard";
+import ProductCard from "../components/ProductCard";
 import AppContext from "../context/AppContext";
 
 
@@ -21,7 +21,7 @@ const Products = ({ products }) => {
 
   useEffect(() => {
     setProducts(products)
-  }, [products])
+  }, [products, setProducts])
 
   return (
     <>
@@ -35,12 +35,11 @@ const Products = ({ products }) => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
 
-            {
+          {
               products?.map((item, i) => {
                 return <ProductCard item={item} key={i} />
               })
             }
-
           </div>
         </div>
       </section>

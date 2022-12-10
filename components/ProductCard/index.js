@@ -10,6 +10,7 @@ const ProductCard = ({ item }) => {
                     width={260}
                     height={200}
                     responsive
+                    alt={item?.title}
                     className='object-cover object-center w-full h-full block'
                 />
 

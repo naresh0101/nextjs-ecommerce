@@ -42,6 +42,7 @@ const Detail = ({ data }) => {
                         <Image src={thumbnail}
                             width={260}
                             height={200}
+                            alt={title}
                             responsive
                             className='lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded'
                         />
