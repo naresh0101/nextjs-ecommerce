@@ -4,14 +4,14 @@ import AppContext from '../context/AppContext'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  const [blogs, setBlogs] = useState([1, 2])
+  const [products, setProducts] = useState([1, 2])
 
   return <AppContext.Provider
     value={{
       state: {
-        blogs
+        products
       },
-      setBlogs
+      setProducts
     }}
   >
     <>

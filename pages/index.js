@@ -1,43 +1,46 @@
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import BlogCard from "../components/blogCard";
+import ProductCard from "../components/productCard";
 import AppContext from "../context/AppContext";
 
 
 // This gets called on every request
 export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-  const blogs = await res.json()
+  const res = await fetch(`https://dummyjson.com/products`)
+  const products = await res.json()
 
-  // Pass blogs to the page via props
-  return { props: { blogs } }
+  // Pass Products to the page via props
+  return { props: { products: products?.products } }
 }
 
-const Blogs = (props) => {
+const Products = (props) => {
   const value = useContext(AppContext)
   // const { blogs } = value.state
-  const { setBlogs } = value
+  const { setProducts } = value
 
   useEffect(() => {
-    setBlogs(props?.blogs)
+    setProducts(props?.products)
   }, [])
 
   return (
     <>
       <Head>
-        <title>Read All Latest Blogs</title>
+        <title>Best 🔥 Products in market</title>
         <meta name="description" content="Top blogs in world demo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
+
             {
-              props?.blogs?.map((item, i) => {
-                return <BlogCard item={item} key={i} />
+              props?.products?.map((item, i) => {
+                return <ProductCard item={item} key={i} />
               })
             }
+
           </div>
         </div>
       </section>
@@ -45,4 +48,4 @@ const Blogs = (props) => {
   )
 }
 
-export default Blogs
+export default Products
