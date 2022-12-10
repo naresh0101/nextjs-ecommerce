@@ -14,14 +14,14 @@ export async function getStaticProps() {
   return { props: { products: products?.products } }
 }
 
-const Products = (props) => {
+const Products = ({ products }) => {
   const value = useContext(AppContext)
   // const { blogs } = value.state
   const { setProducts } = value
 
   useEffect(() => {
-    setProducts(props?.products)
-  }, [])
+    setProducts(products)
+  }, [products])
 
   return (
     <>
@@ -36,7 +36,7 @@ const Products = (props) => {
           <div className="flex flex-wrap -m-4">
 
             {
-              props?.products?.map((item, i) => {
+              products?.map((item, i) => {
                 return <ProductCard item={item} key={i} />
               })
             }
